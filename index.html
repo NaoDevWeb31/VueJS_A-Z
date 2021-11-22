@@ -30,7 +30,9 @@
       <h2>Compteur : {{ compteur }}</h2>
 
       <p>Ton nom</p>
-      <input type="text" v-on:keyup.enter="inpFunc">
+      <!-- Lier les inputs aux données -->
+      <input type="text" v-model="valeur">
+      <p>{{ valeur }}</p>
 
     </div>
 
@@ -43,12 +45,10 @@
       new Vue({
         el: "#mon-app",
         data: {
-          compteur: 0
+          compteur: 0,
+          valeur: ""
         },
         methods: {
-          inpFunc: function() {
-            console.log("Tu as appuyé sur la touche \"Entrée\"");
-          },
           augmente: function() {
             this.compteur++;
           },
