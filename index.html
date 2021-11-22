@@ -14,6 +14,12 @@
       height: 200px;
       border: 1px solid #333;
     }
+
+    #btn {
+      position: fixed;
+      top: 50px;
+      right: 50px;
+    }
   </style>
 
   <body>
@@ -25,7 +31,16 @@
       <canvas v-on:mousemove="coords"></canvas>
       <p>{{ x }} / {{ y }}</p>
 
-      <button v-on:click.once="foo">Clique moi</button>
+      <div v-on:click="foo">
+        <p>
+          <button id="btn" v-on:click.stop="foo">Clique moi</button>
+        </p>
+      </div>
+
+      <form v-on:submit.prevent="onSubmit">
+        <button>Valider</button>
+      </form>
+
     </div>
 
     <!-- Installation de VueJS 2 -->
@@ -44,6 +59,9 @@
         methods: {
           foo: function() {
             console.log("Cliqué");
+          },
+          onSubmit: function() {
+            console.log("Soumis");
           },
           augmente: function() {
             this.compteur++;
