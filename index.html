@@ -28,18 +28,9 @@
       <button v-on:click="augmente">Augmente</button>
       <button v-on:click="baisse">Baisse</button>
       <h2>Compteur : {{ compteur }}</h2>
-      <canvas v-on:mousemove="coords"></canvas>
-      <p>{{ x }} / {{ y }}</p>
 
-      <div v-on:click="foo">
-        <p>
-          <button id="btn" v-on:click.stop="foo">Clique moi</button>
-        </p>
-      </div>
-
-      <form v-on:submit.prevent="onSubmit">
-        <button>Valider</button>
-      </form>
+      <p>Ton nom</p>
+      <input type="text" v-on:keyup.enter="inpFunc">
 
     </div>
 
@@ -52,27 +43,17 @@
       new Vue({
         el: "#mon-app",
         data: {
-          compteur: 0,
-          x: 0,
-          y: 0
+          compteur: 0
         },
         methods: {
-          foo: function() {
-            console.log("Cliqué");
-          },
-          onSubmit: function() {
-            console.log("Soumis");
+          inpFunc: function() {
+            console.log("Tu as appuyé sur la touche \"Entrée\"");
           },
           augmente: function() {
             this.compteur++;
           },
           baisse: function() {
             this.compteur--;
-          },
-          coords: function(event) {
-            // console.log(event);
-            this.x = event.offsetX;
-            this.y = event.offsetY;
           }
         },
       });
