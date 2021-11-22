@@ -25,13 +25,19 @@
   <body>
     <div id="mon-app">
       <h1>Vue JS Cours</h1>
-      <button v-on:click="augmente">Augmente</button>
-      <button v-on:click="baisse">Baisse</button>
+      <!-- Utiliser des expressions JavaScript (assigner des valeurs à des variables) -->
+      <button v-on:click="compteur++">Augmente</button>
+      <button v-on:click="compteur--">Baisse</button>
       <h2>Compteur : {{ compteur }}</h2>
+      <!-- Utiliser des expressions JavaScript (calcul) -->
+      <h2>Interpolation : 2 + 2 => {{ 2 + 2 }}</h2>
+      <!-- Utiliser des expressions JavaScript (opération ternaire) -->
+      <h3>{{ compteur ? "Il est true" : "Il est false" }}</h3>
 
-      <p>Ton nom</p>
-      <!-- Lier les inputs aux données -->
-      <input type="text" v-model="valeur">
+      <label>Ton nom</p>
+        <!-- Lier les inputs aux données -->
+        <input type="text" v-model="valeur">
+      </label>
       <p>{{ valeur }}</p>
 
     </div>
