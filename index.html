@@ -25,14 +25,16 @@
   <body>
     <div id="mon-app">
       <h1>Vue JS Cours</h1>
-      <!-- Utiliser des expressions JavaScript (assigner des valeurs à des variables) -->
+      <!-- Interpolation => Utiliser des expressions JavaScript (assigner des valeurs à des variables) -->
       <button v-on:click="compteur++">Augmente</button>
       <button v-on:click="compteur--">Baisse</button>
       <h2>Compteur : {{ compteur }}</h2>
-      <!-- Utiliser des expressions JavaScript (calcul) -->
+      <!-- Interpolation => Utiliser des expressions JavaScript (calcul) -->
       <h2>Interpolation : 2 + 2 => {{ 2 + 2 }}</h2>
-      <!-- Utiliser des expressions JavaScript (opération ternaire) -->
+      <!-- Interpolation => Utiliser des expressions JavaScript (opération ternaire) -->
       <h3>{{ compteur ? "Il est true" : "Il est false" }}</h3>
+      <!-- Interpolation => HTML brut -->
+      <p v-html="htmlBrut">{{ htmlBrut }}</p>
 
       <label>Ton nom</p>
         <!-- Lier les inputs aux données -->
@@ -52,7 +54,8 @@
         el: "#mon-app",
         data: {
           compteur: 0,
-          valeur: ""
+          valeur: "",
+          htmlBrut: "<p> Mon HTML Brut </p>"
         },
         methods: {
           augmente: function() {
