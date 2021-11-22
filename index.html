@@ -11,11 +11,10 @@
 <body>
   <div id="mon-app">
     <h1>Vue JS Cours</h1>
-    <p>{{ txt }}</p>
-    <p>{{ presentation() }}</p>
-    <!-- Lier les données -->
-    <a v-bind:href="URLVueJS">Le site de Vue JS</a>
-    <img v-bind:src="URLImg" />
+    <button v-on:click="compteur++">Augmente</button>
+    <button v-on:click="compteur--">Baisse</button>
+    <h2>Compteur : {{ compteur }}</h2>
+
   </div>
 
   <!-- Installation de VueJS 2 -->
@@ -27,15 +26,10 @@
     new Vue({
       el: "#mon-app",
       data: {
-        txt: "Hello World",
-        nb: 10,
-        URLVueJS: "https://fr.vuejs.org/v2/guide/installation.html",
-        URLImg: "https://images.unsplash.com/photo-1637548739071-7c24bbcab218?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+        compteur: 0
       },
       methods: {
-        presentation: function () {
-          return this.txt + this.nb;
-        },
+
       },
     });
 
