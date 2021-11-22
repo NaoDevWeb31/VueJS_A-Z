@@ -25,6 +25,7 @@
       <canvas v-on:mousemove="coords"></canvas>
       <p>{{ x }} / {{ y }}</p>
 
+      <button v-on:click.once="foo">Clique moi</button>
     </div>
 
     <!-- Installation de VueJS 2 -->
@@ -41,6 +42,9 @@
           y: 0
         },
         methods: {
+          foo: function() {
+            console.log("Cliqué");
+          },
           augmente: function() {
             this.compteur++;
           },
