@@ -8,19 +8,27 @@
     <title>Vue JS Playground</title>
   </head>
 
+  <style>
+    .box {
+      width: 250px;
+      height: 250px;
+      border: 1px solid #333;
+    }
+
+    .red {
+      background: crimson;
+    }
+  </style>
+
   <body>
     <div id="mon-app">
       <h1>Vue JS Cours</h1>
-      <!-- Raccourci de v-on:click -->
-      <button @click="compteurA++">Augmente</button>
-      <button @click="compteurA--">Baisse</button>
-      <h2>Compteur : {{ compteurA }}</h2>
-      <p>{{ checkValeur() }} |||| {{ memo }}</p>
-
-      <button v-on:click="compteurB++">Augmente</button>
-      <p>Compteur : {{ compteurB }}</p>
-      <!-- Raccourci de v-bind:href -->
-      <a :href="compteurA">Hello</a>
+      <button v-on:click="toggleColor = !toggleColor">Toggle la couleur</button>
+      <div 
+        class="box" 
+<!-- Appliquer la couleur rouge seulement si toggleColor est true -->
+        v-bind:class="{ red : toggleColor }"
+        ></div>
     </div>
 
     <!-- Installation de VueJS 2 -->
@@ -32,28 +40,9 @@
       new Vue({
         el: "#mon-app",
         data: {
-          compteurA: 0,
-          compteurB: 0,
+          toggleColor: false,
         },
-        methods: {
-          checkValeur: function() {
-            console.log("La fonction s'est lancée");
-            return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
-          }
-        },
-        watch: {
-          compteurA: function() {
-            setTimeout(() => {
-              this.compteurA = 0;
-            }, 1500)
-          },
-        },
-        computed: {
-          memo: function() {
-            console.log("MEMO s'est lancée");
-            return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
-          }
-        }
+
       });
 
     </script>
