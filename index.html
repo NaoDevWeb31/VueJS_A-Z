@@ -10,34 +10,45 @@
 
   <body>
     <div id="mon-app1">
-      <h1>{{ txt }}</h1>
+
 
     </div>
 
     <div id="mon-app2">
       <h1>{{ txt }}</h1>
+      <button v-on:click="func1">CHANGEMENT</button>
 
     </div>
 
     <!-- Installation de VueJS 2 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-    <!-- Création d'une instance -->
-    <script>
-
-      const inst1 = new Vue({
-        el: "#mon-app1",
+    <script type="text/javascript">
+      // Création d'une instance
+      const ins1 = new Vue({
+        template: `<h1>{{ txt }}</h1>`,
         data: {
           txt: "Hello APP 1"
         },
       });
+      ins1.$mount();
+      document.getElementById("mon-app1").appendChild(ins1.$el);
 
-      const inst2 = new Vue({
+
+      // Création d'une instance
+      const ins2 = new Vue({
         el: "#mon-app2",
         data: {
           txt: "Hello APP 2"
         },
+        methods: {
+          func1: function() {
+            ins1.txt = "Je t'ai changée";
+          }
+        }
       });
+
+      console.log(ins1.txt);
     </script>
   </body>
 
