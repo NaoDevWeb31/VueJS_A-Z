@@ -30,9 +30,9 @@
       <!-- Toggle en CSS -->
       <button v-on:click="toggleBox = !toggleBox">Toggle la couleur</button>
 
-      <!-- Boucle v-for -->
+      <!-- Double boucle -->
       <ul>
-        <li v-for="nb in tableau">{{ nb }}</li>
+        <li v-for="(fruit, i) in tableauFruits">{{ i }} {{ fruit }}</li>
       </ul>
 
     </div>
@@ -46,7 +46,7 @@
       new Vue({
         el: "#mon-app",
         data: {
-          tableau: [1, 2, 3, 4, 5],
+          tableauFruits: ["Fraise", "Pomme", "Poire"],
           toggleBox: false,
         },
 
