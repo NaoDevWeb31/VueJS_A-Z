@@ -11,14 +11,16 @@
   <body>
     <div id="mon-app">
       <h1>Vue JS Cours</h1>
-      <!-- Interpolation => Utiliser des expressions JavaScript (assigner des valeurs à des variables) -->
-      <button v-on:click="compteurA++">Augmente</button>
-      <button v-on:click="compteurA--">Baisse</button>
+      <!-- Raccourci de v-on:click -->
+      <button @click="compteurA++">Augmente</button>
+      <button @click="compteurA--">Baisse</button>
       <h2>Compteur : {{ compteurA }}</h2>
       <p>{{ checkValeur() }} |||| {{ memo }}</p>
 
       <button v-on:click="compteurB++">Augmente</button>
       <p>Compteur : {{ compteurB }}</p>
+      <!-- Raccourci de v-bind:href -->
+      <a :href="compteurA">Hello</a>
     </div>
 
     <!-- Installation de VueJS 2 -->
