@@ -8,51 +8,14 @@
     <title>Vue JS Playground</title>
   </head>
 
-  <style>
-    .box {
-      width: 250px;
-      height: 250px;
-      border: 1px solid #333;
-    }
-
-    .red {
-      background: crimson;
-    }
-
-    .bordure {
-      border: 10px solid #333;
-    }
-  </style>
-
   <body>
-    <div id="mon-app">
-      <h1>Vue JS Cours</h1>
-      <!-- Toggle en CSS -->
-      <button v-on:click="toggleBox = !toggleBox">Toggle la couleur</button>
+    <div id="mon-app1">
+      <h1>{{ txt }}</h1>
 
-      <!-- Boucle v-for -->
-      <h2>Boucle v-for simple</h2>
-      <ul>
-        <li v-for="nb in tableau">{{ nb }}</li>
-      </ul>
-      <!-- Double boucle -->
-      <h2>Double boucle dans un tableau simple</h2>
-      <ul>
-        <li v-for="(fruit, i) in tableauFruits">{{ i }} {{ fruit }}</li>
-      </ul>
-      <h2>Double boucle dans un objet</h2>
-      <ul>
-        <li v-for="(val, props) in objChat">{{ props }} : {{ val }}</li>
-      </ul>
-      <h2>Double boucle dans un tableau contenant 4 objets</h2>
-      <ul>
-        <li v-for="(obj, i) in objChat2" :style="{marginBottom: '1rem'}">
-          Objet {{ i + 1 }}
-          <ul v-for="(val, props) in obj">
-            <li>{{ props }} : {{ val }}</li>
-          </ul>
-        </li>
-      </ul>
+    </div>
+
+    <div id="mon-app2">
+      <h1>{{ txt }}</h1>
 
     </div>
 
@@ -62,27 +25,19 @@
     <!-- Création d'une instance -->
     <script>
 
-      new Vue({
-        el: "#mon-app",
+      const inst1 = new Vue({
+        el: "#mon-app1",
         data: {
-          tableau: [1, 2, 3, 4, 5],
-          tableauFruits: ["Fraise", "Pomme", "Poire"],
-          objChat: {
-            race: "Persan",
-            age: 3,
-            poids: "3kg",
-          },
-          objChat2: [
-            { race: "Persan", age: 2, poids: "2kg" },
-            { race: "Persan", age: 2, poids: "2kg" },
-            { race: "Persan", age: 2, poids: "2kg" },
-            { race: "Persan", age: 2, poids: "2kg" },
-          ],
-          toggleBox: false,
+          txt: "Hello APP 1"
         },
-
       });
 
+      const inst2 = new Vue({
+        el: "#mon-app2",
+        data: {
+          txt: "Hello APP 2"
+        },
+      });
     </script>
   </body>
 
