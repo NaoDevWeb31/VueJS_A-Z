@@ -29,11 +29,16 @@
       <h1>Vue JS Cours</h1>
       <!-- Toggle en CSS -->
       <button v-on:click="toggleBox = !toggleBox">Toggle la couleur</button>
-      <!-- Les conditions -->
-      <p v-if="num === 1">La valeur est 1</p>
-      <p v-else-if="num === 2">La valeur est 2</p>
-      <p v-else-if="num === 3">La valeur est 3</p>
-      <p v-else>Cela n'est ni 1 ni 2 ni 3</p>
+
+      <!-- Faire du rendu conditionnel -->
+      <template v-if="toggleBox">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime possimus iure voluptates nemo at? Non, quis
+          alias nisi harum, ad labore id doloremque velit delectus molestias mollitia placeat omnis adipisci.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime possimus iure voluptates nemo at? Non, quis
+          alias nisi harum, ad labore id doloremque velit delectus molestias mollitia placeat omnis adipisci.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime possimus iure voluptates nemo at? Non, quis
+          alias nisi harum, ad labore id doloremque velit delectus molestias mollitia placeat omnis adipisci.</p>
+      </template>
 
     </div>
 
@@ -46,7 +51,6 @@
       new Vue({
         el: "#mon-app",
         data: {
-          num: 30,
           toggleBox: false,
         },
 
