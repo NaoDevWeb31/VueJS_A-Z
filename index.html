@@ -30,8 +30,11 @@
       <!-- Toggle en CSS -->
       <button v-on:click="toggleBox = !toggleBox">Toggle la couleur</button>
       <!-- Les conditions -->
-      <div v-if="toggleBox" class="box red"></div>
-      <p v-else="toggleBox">Sinon</p>
+      <p v-if="num === 1">La valeur est 1</p>
+      <p v-else-if="num === 2">La valeur est 2</p>
+      <p v-else-if="num === 3">La valeur est 3</p>
+      <p v-else>Cela n'est ni 1 ni 2 ni 3</p>
+
     </div>
 
     <!-- Installation de VueJS 2 -->
@@ -43,6 +46,7 @@
       new Vue({
         el: "#mon-app",
         data: {
+          num: 30,
           toggleBox: false,
         },
 
