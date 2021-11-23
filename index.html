@@ -32,7 +32,7 @@
       <!-- Utiliser du CSS dans les templates -->
       <div v-bind:class="[objCSS, toggleColor ? 'bordure' : '']"></div>
       <!-- Utiliser du inline style CSS -->
-      <p :style="{backgroundColor: 'blue'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste iure qui
+      <p :style="monStyle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste iure qui
         molestias ab
         nemo porro minima quam, nesciunt praesentium. Consectetur quo autem dignissimos itaque voluptate doloribus
         corporis nam delectus labore.</p>
@@ -48,12 +48,20 @@
         el: "#mon-app",
         data: {
           toggleColor: false,
+          color: "lightblue",
+          width: 200,
         },
         computed: {
           objCSS: function() {
             return {
               red: this.toggleColor,
               box: true,
+            }
+          },
+          monStyle: function() {
+            return {
+              backgroundColor: this.color,
+              width: this.width + "px"
             }
           }
         }
