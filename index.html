@@ -8,40 +8,17 @@
     <title>Vue JS Playground</title>
   </head>
 
-  <style>
-    canvas {
-      width: 300px;
-      height: 200px;
-      border: 1px solid #333;
-    }
-
-    #btn {
-      position: fixed;
-      top: 50px;
-      right: 50px;
-    }
-  </style>
-
   <body>
     <div id="mon-app">
       <h1>Vue JS Cours</h1>
       <!-- Interpolation => Utiliser des expressions JavaScript (assigner des valeurs à des variables) -->
-      <button v-on:click="compteur++">Augmente</button>
-      <button v-on:click="compteur--">Baisse</button>
-      <h2>Compteur : {{ compteur }}</h2>
-      <!-- Interpolation => Utiliser des expressions JavaScript (calcul) -->
-      <h2>Interpolation : 2 + 2 => {{ 2 + 2 }}</h2>
-      <!-- Interpolation => Utiliser des expressions JavaScript (opération ternaire) -->
-      <h3>{{ compteur ? "Il est true" : "Il est false" }}</h3>
-      <!-- Interpolation => HTML brut -->
-      <p v-html="htmlBrut">{{ htmlBrut }}</p>
+      <button v-on:click="compteurA++">Augmente</button>
+      <button v-on:click="compteurA--">Baisse</button>
+      <h2>Compteur : {{ compteurA }}</h2>
+      <p>{{ checkValeur() }} |||| {{ memo }}</p>
 
-      <label>Ton nom</p>
-        <!-- Lier les inputs aux données -->
-        <input type="text" v-model="valeur">
-      </label>
-      <p>{{ valeur }}</p>
-
+      <button v-on:click="compteurB++">Augmente</button>
+      <p>Compteur : {{ compteurB }}</p>
     </div>
 
     <!-- Installation de VueJS 2 -->
@@ -53,18 +30,21 @@
       new Vue({
         el: "#mon-app",
         data: {
-          compteur: 0,
-          valeur: "",
-          htmlBrut: "<p> Mon HTML Brut </p>"
+          compteurA: 0,
+          compteurB: 0,
         },
         methods: {
-          augmente: function() {
-            this.compteur++;
-          },
-          baisse: function() {
-            this.compteur--;
+          checkValeur: function() {
+            console.log("La fonction s'est lancée");
+            return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
           }
         },
+        computed: {
+          memo: function() {
+            console.log("MEMO s'est lancée");
+            return this.compteurA > 10 ? "Supérieur à 10" : "Inférieur à 10";
+          }
+        }
       });
 
     </script>
