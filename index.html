@@ -30,15 +30,10 @@
       <!-- Toggle en CSS -->
       <button v-on:click="toggleBox = !toggleBox">Toggle la couleur</button>
 
-      <!-- Faire du rendu conditionnel -->
-      <template v-if="toggleBox">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime possimus iure voluptates nemo at? Non, quis
-          alias nisi harum, ad labore id doloremque velit delectus molestias mollitia placeat omnis adipisci.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime possimus iure voluptates nemo at? Non, quis
-          alias nisi harum, ad labore id doloremque velit delectus molestias mollitia placeat omnis adipisci.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime possimus iure voluptates nemo at? Non, quis
-          alias nisi harum, ad labore id doloremque velit delectus molestias mollitia placeat omnis adipisci.</p>
-      </template>
+      <!-- Boucle v-for -->
+      <ul>
+        <li v-for="nb in tableau">{{ nb }}</li>
+      </ul>
 
     </div>
 
@@ -51,6 +46,7 @@
       new Vue({
         el: "#mon-app",
         data: {
+          tableau: [1, 2, 3, 4, 5],
           toggleBox: false,
         },
 
