@@ -3,15 +3,12 @@
       
     <h1>{{ titre }}</h1>
 
-        <div class="btn btn-outline-primary mr-2" @click="toggleOng1">Onglet 1</div>
-        <div class="btn btn-outline-primary" @click="toggleOng2">Onglet 2</div>
+        <div class="btn btn-outline-primary mr-2" @click="componentId = 'texte1'">Onglet 1</div>
+        <div class="btn btn-outline-primary" @click="componentId = 'texte2'">Onglet 2</div>
 
-        <div class="onglets card mb-5" v-if="toggle1">
-            <texte-1 class="p-5"></texte-1>
-        </div>
-
-        <div class="onglets card mb-5" v-if="toggle2">
-            <texte-2 class="p-5"></texte-2>
+        <div class="onglets card mb-5">
+            <!-- Composants dynamiques -->
+            <component class="p-5" :is="componentId"></component>
         </div>
 
   </div>
@@ -34,6 +31,7 @@
         titre: "Je suis le Titre",
         toggle1: true,
         toggle2: false,
+        componentId: "texte1"
       };
     },
     methods: {
