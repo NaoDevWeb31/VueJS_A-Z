@@ -1,14 +1,10 @@
 <template>
-  <div class="container mt-5 mx-auto">
-    <h1 class="lead">
-      {{ txt }}
-    </h1>
+  <div class="container mt-5">
     <!-- Utilisation des props du composant enfant "Liste" -->
-    <liste
-      :prenom="prenom"
-      :infosFruits="infosFruits"
-      :presentation="presentation"
-    ></liste>
+    <liste :myArr="myArr" :txt="txt"></liste>
+    <!-- Référence au même tableau "myArr" = valeur de référence => suppression dans les 2 tableaux -->
+    <!-- "txt" = valeur primitive => suppression du "txt" sélectionné uniquement -->
+    <liste :myArr="myArr" :txt="txt"></liste>
   </div>
 </template>
 
@@ -19,16 +15,12 @@
     name: "Contenu",
     data() {
       return {
-        txt: "Je suis le contenu",
-        prenom: "Naomi",
-        infosFruits: [
-          { saison: "Décembre - Avril", type: "Agrume" },
-          { saison: "Octobre - Décembre", type: "Baie" },
-          { saison: "Avril - Juin", type: "Fruit rouge" },
+        myArr: [
+          { titre: "Inception", date: 2010 },
+          { titre: "Avatar", date: 2009 },
+          { titre: "Seven", date: 1995 },
         ],
-        presentation: function () {
-          console.log("Hello depuis le Parent !");
-        },
+        txt: "Hello World",
       };
     },
     components: {

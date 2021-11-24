@@ -1,39 +1,23 @@
 <template>
   <div>
-    <div class="row">
-      <section class="col">
-        <h2>Fruits</h2>
-        <ul class="liste">
-          <li
-            v-for="(fruit, index) in fruits"
-            v-bind:key="index"
-          >
-            <span>
-              {{ fruit }}
-            </span>
-          </li>
-        </ul>
-      </section>
-      <section class="col">
-        <h2>Types</h2>
-        <ul>
-          <!-- Utiliser la prop "infosFruits" dans le composant enfant -->
-          <li
-            v-for="(infoFruit, i) in infosFruits"
-            :key="i"
-          >
-            {{ infoFruit.type }}
-          </li>
-        </ul>
-      </section>
-    </div>
-
-    <div class="row">
+    <ul class="liste mt-5">
       <!-- Valeur de la prop transmise dans le composant parent "Contenu" -->
-      <p class="col">{{ prenom }}</p>
-      <!-- Utiliser la prop "prenom" dans le composant enfant -->
-      <p class="col-6">{{ reversing() }}</p>
-      <p class="col-6">{{ presentation() }}</p>
+      <!-- Utiliser la prop "myArr" dans le composant enfant -->
+      <li v-for="(film, index) in myArr" v-bind:key="index">
+        <div class="card">
+          <div class="card-body">
+            <span> Titre : {{ film.titre }} </span><br />
+            <span> Date : {{ film.date }} </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <p>{{ txt }}</p>
+    <div v-on:click="supprFilm" class="btn btn-danger mt-2">
+      Supprime le film
+    </div>
+    <div v-on:click="supprTxt" class="btn btn-danger mt-2 ml-2">
+      Supprime le txt
     </div>
   </div>
 </template>
@@ -42,18 +26,15 @@
   export default {
     name: "Liste",
     data() {
-      return {
-        fruits: ["Orange", "Papaye", "Fraise"],
-      };
+      return {};
     },
-    props: {
-      prenom: { type: String, required: true },
-      infosFruits: { type: Array },
-      presentation: { type: Function },
-    },
+    props: ["myArr", "txt"],
     methods: {
-      reversing: function () {
-        return this.prenom.split("").reverse().join("");
+      supprFilm: function () {
+        this.myArr.pop();
+      },
+      supprTxt: function () {
+        this.txt = "";
       },
     },
   };
