@@ -3,7 +3,8 @@
     <p>
       {{ txt }}
     </p>
-    <liste></liste>
+    <!-- Prop "personne" dans le composant enfant "Liste" -->
+    <liste :infosFruits="infosFruits[1].saison"> </liste>
   </div>
 </template>
 
@@ -15,6 +16,11 @@
     data() {
       return {
         txt: "Je suis le contenu",
+        infosFruits: [
+          { saison: "Décembre - Avril", type: "Agrume" },
+          { saison: "Octobre - Décembre", type: "Baie" },
+          { saison: "Avril - Juin", type: "Fruit rouge" },
+        ],
       };
     },
     components: {

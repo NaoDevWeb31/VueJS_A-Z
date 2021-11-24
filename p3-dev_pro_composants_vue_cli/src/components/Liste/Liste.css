@@ -1,9 +1,17 @@
+div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
 ul {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   background: lightblue;
-  width: 30%;
+  width: 50%;
+}
+li span {
+  position: relative;
+  left: -10px;
 }
 
 p {
