@@ -1,0 +1,11 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: lightblue;
+  width: 30%;
+}
+
+p {
+  color: red;
+}
