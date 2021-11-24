@@ -5,13 +5,16 @@ div {
   justify-items: center;
 }
 
-ul {
-  background: lightblue;
+section {
   width: 50%;
 }
-li span {
-  position: relative;
-  left: -10px;
+
+ul {
+  background: lightblue;
+}
+
+li {
+  text-align: left;
 }
 
 p {
