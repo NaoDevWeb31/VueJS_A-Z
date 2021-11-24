@@ -1,10 +1,12 @@
 <template>
   <div class="container mt-5">
+    <h1>{{ titre }}</h1>
     <!-- Utilisation des props du composant enfant "Liste" -->
-    <liste :myArr="myArr" :txt="txt"></liste>
-    <!-- Référence au même tableau "myArr" = valeur de référence => suppression dans les 2 tableaux -->
-    <!-- "txt" = valeur primitive => suppression du "txt" sélectionné uniquement -->
-    <liste :myArr="myArr" :txt="txt"></liste>
+    <liste
+      :myArr="myArr"
+      :txt="txt"
+      v-on:changeTitre="changementTitre($event)"
+    ></liste>
   </div>
 </template>
 
@@ -21,7 +23,13 @@
           { titre: "Seven", date: 1995 },
         ],
         txt: "Hello World",
+        titre: "Je suis le Titre",
       };
+    },
+    methods: {
+      changementTitre: function (nvTitre) {
+        this.titre = nvTitre;
+      },
     },
     components: {
       liste: Liste,

@@ -19,6 +19,9 @@
     <div v-on:click="supprTxt" class="btn btn-danger mt-2 ml-2">
       Supprime le txt
     </div>
+    <div v-on:click="changeTitre" class="btn btn-danger mt-2 ml-2">
+      Modifie le titre
+    </div>
   </div>
 </template>
 
@@ -35,6 +38,9 @@
       },
       supprTxt: function () {
         this.txt = "";
+      },
+      changeTitre: function () {
+        this.$emit("changeTitre", "Mon nouveau titre");
       },
     },
   };
