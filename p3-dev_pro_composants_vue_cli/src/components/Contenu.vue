@@ -11,12 +11,16 @@
             <component class="p-5" :is="componentId"></component>
         </div>
 
+        <modale :revele="revele" :toggleModale="toggleModale"></modale>
+        <button @click="toggleModale" class="btn btn-success">Ouvre le modale</button>
+        
   </div>
 </template>
 
 <script>
   import Texte1 from "./Texte1.vue";
   import Texte2 from "./Texte2.vue";
+  import Modale from './Modale.vue';
 
   export default {
     name: "Contenu",
@@ -31,7 +35,8 @@
         titre: "Je suis le Titre",
         toggle1: true,
         toggle2: false,
-        componentId: "texte1"
+        componentId: "texte1",
+        revele: false,
       };
     },
     methods: {
@@ -43,10 +48,14 @@
         this.toggle1 = false;
         this.toggle2 = true;
       },
+        toggleModale(){
+            this.revele = !this.revele;
+        },
     },
     components: {
-      texte1: Texte1,
-      texte2: Texte2,
+      "texte1": Texte1,
+      "texte2": Texte2,
+      "modale": Modale
     },
   };
 </script>
