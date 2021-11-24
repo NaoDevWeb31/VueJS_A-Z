@@ -26,6 +26,8 @@
 </template>
 
 <script>
+  import { bus } from "../../main";
+
   export default {
     name: "Liste",
     data() {
@@ -40,7 +42,8 @@
         this.txt = "";
       },
       changeTitre: function () {
-        this.$emit("changeTitre", "Mon nouveau titre");
+        // Données transmises de Liste.vue à Header.vue via le bus déclaré dans main.js
+        bus.$emit("changeTitre", "Titre changé avec le bus !");
       },
     },
   };

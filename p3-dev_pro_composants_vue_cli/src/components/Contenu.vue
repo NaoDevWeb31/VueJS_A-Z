@@ -2,11 +2,7 @@
   <div class="container mt-5">
     <h1>{{ titre }}</h1>
     <!-- Utilisation des props du composant enfant "Liste" -->
-    <liste
-      :myArr="myArr"
-      :txt="txt"
-      v-on:changeTitre="changementTitre($event)"
-    ></liste>
+    <liste :myArr="myArr" :txt="txt"></liste>
   </div>
 </template>
 
@@ -26,15 +22,14 @@
         titre: "Je suis le Titre",
       };
     },
-    methods: {
-      changementTitre: function (nvTitre) {
-        this.titre = nvTitre;
-      },
-    },
     components: {
       liste: Liste,
     },
   };
 </script>
 
-<style></style>
+<style>
+  h1 {
+    margin-top: 100px !important;
+  }
+</style>
