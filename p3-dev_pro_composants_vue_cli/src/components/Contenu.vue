@@ -2,7 +2,12 @@
   <div class="container mt-5">
     <h1>{{ titre }}</h1>
     <!-- Utilisation des props du composant enfant "Liste" -->
-    <liste :myArr="myArr" :txt="txt"></liste>
+    <liste :myArr="myArr" :txt="txt">
+      <p>Envoyez</p>
+      <template v-slot:info>
+        <h1>Le contenu du slot nommé</h1>
+      </template>
+    </liste>
   </div>
 </template>
 

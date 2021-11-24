@@ -22,6 +22,9 @@
     <div v-on:click="changeTitre" class="btn btn-danger mt-2 ml-2">
       Modifie le titre
     </div>
+
+    <slot>Patientez</slot>
+    <slot name="info"></slot>
   </div>
 </template>
 
