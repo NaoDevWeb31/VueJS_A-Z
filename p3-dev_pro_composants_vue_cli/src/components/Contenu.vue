@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>
+  <div class="container mt-5 mx-auto">
+    <h1 class="lead">
       {{ txt }}
     </h1>
     <!-- Utilisation des props du composant enfant "Liste" -->
