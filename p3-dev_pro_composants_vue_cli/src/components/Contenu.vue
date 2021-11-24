@@ -4,7 +4,11 @@
       {{ txt }}
     </h1>
     <!-- Utilisation des props du composant enfant "Liste" -->
-    <liste :prenom="prenom" :infosFruits="infosFruits"> </liste>
+    <liste
+      :prenom="prenom"
+      :infosFruits="infosFruits"
+      :presentation="presentation"
+    ></liste>
   </div>
 </template>
 
@@ -22,6 +26,9 @@
           { saison: "Octobre - Décembre", type: "Baie" },
           { saison: "Avril - Juin", type: "Fruit rouge" },
         ],
+        presentation: function () {
+          console.log("Hello depuis le Parent !");
+        },
       };
     },
     components: {

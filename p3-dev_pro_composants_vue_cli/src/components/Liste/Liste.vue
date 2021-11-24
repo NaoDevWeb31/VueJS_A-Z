@@ -3,7 +3,10 @@
     <section>
       <h2>Liste de Fruits</h2>
       <ul class="liste">
-        <li v-for="(fruit, index) in fruits" v-bind:key="index">
+        <li
+          v-for="(fruit, index) in fruits"
+          v-bind:key="index"
+        >
           <span>
             {{ fruit }}
           </span>
@@ -14,7 +17,10 @@
       <h2>Type</h2>
       <ul>
         <!-- Utiliser la prop "infosFruits" dans le composant enfant -->
-        <li v-for="(infoFruit, i) in infosFruits" :key="i">
+        <li
+          v-for="(infoFruit, i) in infosFruits"
+          :key="i"
+        >
           {{ infoFruit.type }}
         </li>
       </ul>
@@ -23,6 +29,7 @@
     <p>{{ prenom }}</p>
     <!-- Utiliser la prop "prenom" dans le composant enfant -->
     <p>{{ reversing() }}</p>
+    <p>{{ presentation() }}</p>
   </div>
 </template>
 
@@ -34,7 +41,11 @@
         fruits: ["Orange", "Papaye", "Fraise"],
       };
     },
-    props: ["prenom", "infosFruits"],
+    props: {
+      prenom: { type: String, required: true },
+      infosFruits: { type: Array },
+      presentation: { type: Function },
+    },
     methods: {
       reversing: function () {
         return this.prenom.split("").reverse().join("");
