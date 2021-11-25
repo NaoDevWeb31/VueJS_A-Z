@@ -24,6 +24,15 @@
         ></textarea>
       </div>
 
+      <h2 class="h3 mt-3">Select Box</h2>
+
+      <div class="form-group">
+        <select v-model="formData.select" class="form-control">
+          <option v-for="(pays, index) in formData.listePays" :key="index">{{ pays }}</option>
+        </select>
+      </div>
+
+      <h2 class="h3 mt-3">CheckBoxes</h2>
 
       <div class="form-check">
           <input v-model="formData.checkFruits" value="Fraise" id="fraise" type="checkbox" class="form-check-input">
@@ -41,9 +50,9 @@
       </div>
 
 
-      <h2 class="mt-3">Résultats</h2>
+      <h2 class="card-header border mt-3">Résultats</h2>
 
-      <div class="card p-3">
+      <div class="card-body border p-3">
         <p>Prénom : {{ formData.prenom }}</p>
         <p style="white-space: pre">Texte : {{ formData.txt }}</p>
 
@@ -51,6 +60,8 @@
         <ul>
           <li v-for="(fruit, index) in formData.checkFruits" :key="index">{{ fruit }}</li>
         </ul>
+
+        <p>Choix du select : {{ formData.select }}</p>
       </div>
 
     </form>
@@ -66,7 +77,9 @@
         formData: {
           prenom: "",
           txt: "",
-          checkFruits: []
+          checkFruits: [],
+          select: "",
+          listePays: ["Russie", "Japon", "Canada", "Mexique"]
         }
       };
     },
