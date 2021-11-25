@@ -9,7 +9,7 @@
     name: "Header",
     data() {
       return {
-        titre: "Mon titre de base",
+        titre: "La To-Do Liste !",
       };
     },
   };

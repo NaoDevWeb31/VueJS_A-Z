@@ -1,105 +1,66 @@
 <template>
   <div class="container mt-5">
-
-    <h1>Notre premier Formulaire</h1>
+    <h1>Rentrez des choses à faire.</h1>
 
     <form>
-
       <div class="form-group">
-        <label for="prenom">Ton prénom</label>
+        <label for="action">Action</label>
         <input
-          v-model.lazy="formData.prenom"
+          v-model="formData.tache"
           type="text"
-          id="prenom"
+          id="action"
           class="form-control"
-          @input="toggleResult"
+          placeholder="Tâche..."
         />
       </div>
 
-      <div class="form-group">
-        <label for="txt">Ton texte</label>
-        <textarea
-          v-model="formData.txt"
-          id="txt"
-          class="form-control"
-          @input="toggleResult"
-        ></textarea>
-      </div>
-
-      <h2 class="h3 mt-3">Select Box</h2>
-
-      <div class="form-group">
-        <select v-model="formData.select" class="form-control" @focus="toggleResult">
-          <option v-for="(pays, index) in formData.listePays" :key="index">{{ pays }}</option>
-        </select>
-      </div>
-
-      <h2 class="h3 mt-3">CheckBoxes</h2>
-
-      <div class="form-check">
-          <input v-model="formData.checkFruits" value="Fraise" id="fraise" type="checkbox" class="form-check-input" @input="toggleResult">
-          <label for="fraise" class="form-check-label">Fraise</label>
-      </div>
-
-      <div class="form-check">
-          <input v-model="formData.checkFruits" value="Pomme" id="pomme" type="checkbox" class="form-check-input" @input="toggleResult">
-          <label for="pomme" class="form-check-label">Pomme</label>
-      </div>
-
-      <div class="form-check">
-          <input v-model="formData.checkFruits" value="Cerises" id="cerises" type="checkbox" class="form-check-input" @input="toggleResult">
-          <label for="cerises" class="form-check-label">Cerises</label>
-      </div>
-
-      <button @click.prevent="envoiForm" type="button" name="" id="" class="btn btn-primary mt-3 btn-lg btn-block">Envoyer les données</button>
-
+      <button @click.prevent="creationItem" class="btn btn-primary mb-3">
+        Créer une tâche
+      </button>
     </form>
 
-    <div v-if="infoSubmit" class="card mt-3">
-      <h2 class="card-header">Résultats</h2>
-
-      <div class="card-body p-3">
-        <p>Prénom : {{ formData.prenom }}</p>
-        <p style="white-space: pre">Texte : {{ formData.txt }}</p>
-
-        <p>Checkboxes :</p>
-        <ul>
-          <li v-for="(fruit, index) in formData.checkFruits" :key="index">{{ fruit }}</li>
-        </ul>
-
-        <p>Choix du select : {{ formData.select }}</p>
-      </div>
-    </div>
-
-
-
+    <ul class="list-group list-group-flush">
+      <li
+        v-for="(tache, index) in tableauTaches"
+        :key="index"
+        class="list-group-item"
+      >
+        <item
+          :tache="tache"
+          :id="index"
+          :suppression="suppression"
+        ></item>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+  import Item from "./Item.vue";
+
   export default {
     name: "Contenu",
     data() {
       return {
         formData: {
-          prenom: "",
-          txt: "",
-          checkFruits: [],
-          select: "",
-          listePays: ["Russie", "Japon", "Canada", "Mexique"]
+          tache: "",
         },
-        infoSubmit: false,
+        tableauTaches: ["JavaScript", "Vue", "Python", "React"],
       };
     },
-    methods: {
-      envoiForm(){
-        this.infoSubmit = true;
-      },
-      toggleResult(){
-        this.infoSubmit = false;
-      }
+    components: {
+      item: Item,
     },
-    components: {},
+    methods: {
+      creationItem() {
+        this.tableauTaches.push(this.formData.tache);
+        this.formData.tache = "";
+      },
+      suppression(e) {
+        console.log("id " + e.target.parentNode.id + " : " +  e.target.previousSibling.textContent + " ➤ Supprimé avec succès !");
+        this.tableauTaches.splice(e.target.parentNode.id, 1);
+      },
+    },
   };
 </script>
 
