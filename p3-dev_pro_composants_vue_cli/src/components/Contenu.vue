@@ -1,45 +1,52 @@
 <template>
   <div class="container mt-5">
-    <h1>Appel à une API</h1>
 
-    <div class="mt-4 mx-auto">
-      <img :src="urlImg" alt="Image de chat" class="img-thumbnail" />
-    </div>
+    <h1>Notre premier Formulaire</h1>
+
+    <form>
+
+      <div class="form-group">
+        <label for="prenom">Ton prénom</label>
+        <input
+          v-model="prenom"
+          type="text"
+          id="prenom"
+          class="form-control"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="txt">Ton texte</label>
+        <textarea
+          v-model="txt"
+          type="text"
+          id="txt"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <h2>Résultats</h2>
+
+      <div class="card p-3">
+        <p>Prénom : {{ prenom }}</p>
+        <p>Texte : {{ txt }}</p>
+      </div>
+
+    </form>
 
   </div>
 </template>
 
 <script>
-  import axios from "axios";
-
   export default {
     name: "Contenu",
     data() {
       return {
-        urlImg: null,
+        prenom: "",
+        txt: "",
       };
     },
-    mounted() {
-      this.getCatImg();
-      this.updateImage();
-    },
-    methods: {
-      getCatImg() {
-        axios
-          .get("https://api.thecatapi.com/v1/images/search")
-          .then((response) => {
-            this.urlImg = response.data[0].url;
-          });
-      },
-      updateImage() {
-        var newImage = new Image();
-        if (newImage.complete) {
-          newImage.src = this.urlImg;
-          this.urlImg = newImage.src = this.getCatImg();
-        }
-        setTimeout(this.updateImage, 10000);
-      },
-    },
+    methods: {},
     components: {},
   };
 </script>
