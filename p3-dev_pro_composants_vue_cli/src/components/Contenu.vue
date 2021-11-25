@@ -8,18 +8,17 @@
       <div class="form-group">
         <label for="prenom">Ton prénom</label>
         <input
-          v-model="prenom"
+          v-model.lazy="formData.prenom"
           type="text"
           id="prenom"
           class="form-control"
         />
       </div>
-      
+
       <div class="form-group">
         <label for="txt">Ton texte</label>
         <textarea
-          v-model="txt"
-          type="text"
+          v-model="formData.txt"
           id="txt"
           class="form-control"
         ></textarea>
@@ -28,8 +27,8 @@
       <h2>Résultats</h2>
 
       <div class="card p-3">
-        <p>Prénom : {{ prenom }}</p>
-        <p>Texte : {{ txt }}</p>
+        <p>Prénom : {{ formData.prenom }}</p>
+        <p style="white-space: pre">Texte : {{ formData.txt }}</p>
       </div>
 
     </form>
@@ -42,8 +41,10 @@
     name: "Contenu",
     data() {
       return {
-        prenom: "",
-        txt: "",
+        formData: {
+          prenom: "",
+          txt: ""
+        }
       };
     },
     methods: {},
