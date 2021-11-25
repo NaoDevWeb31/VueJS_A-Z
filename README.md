@@ -12,6 +12,20 @@ Pour de plus amples informations, retrouvez le [cours complet](https://www.udemy
 
 [Code source](https://codesandbox.io/s/modale-vuejs-cgow8 "Fenêtre modale Vue.js") de la Section 3, chapitre 40
 
+### Aperçu
+
+    Section 3, chapitre 40 — Fenêtre modale
+![Modale](images/Fenêtre%20modale.gif)
+
+    Section 3, chapitre 41 - Appel d'API
+![API](images/Appel%20d'API.gif)
+
+    Section 4 — Formulaire
+![Formulaire](images/Formulaire.gif)
+
+    Section 5 — To-Do Liste
+![To-Do Liste](images/To-Do%20Liste.gif)
+
 ## Udemy
 
 La première place de marché internationale pour l'apprentissage et la formation ! Ce site permet à des participants situés dans n'importe quel pays de bénéficier de la meilleure formation au monde.
