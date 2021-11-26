@@ -11,6 +11,8 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: Routes,
+  // Pour éviter le mode hash # => avoir le comportement classique d'un site
+  mode: "history",
 });
 
 new Vue({
