@@ -9,7 +9,7 @@
         </li>
 
         <li class="btn btn-primary btn-nav">
-            <router-link to="/page1">Page 1</router-link>
+            <router-link to="/blogposts">Articles</router-link>
         </li>
 
         <li class="btn btn-primary btn-nav">
