@@ -26,6 +26,12 @@ Pour de plus amples informations, retrouvez le [cours complet](https://www.udemy
     Section 5 — To-Do Liste
 ![To-Do Liste](images/To-Do%20Liste.gif)
 
+    Section 6, chapitre 54 — Système de blog
+![Système de blog](images/Système%20de%20Blog.gif)
+
+    Section 7 — App Météo
+![App Météo](images/App%20Météo.gif)
+
 ## Udemy
 
 La première place de marché internationale pour l'apprentissage et la formation ! Ce site permet à des participants situés dans n'importe quel pays de bénéficier de la meilleure formation au monde.
