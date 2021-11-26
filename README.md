@@ -27,10 +27,11 @@ Pour de plus amples informations, retrouvez le [cours complet](https://www.udemy
 ![To-Do Liste](images/To-Do%20Liste.gif)
 
     Section 6, chapitre 54 — Système de blog
-![Système de blog](images/Système%20de%20Blog.gif)
+[![Système de blog](images/Système%20de%20Blog.gif)](p3-dev_pro_composants_vue_cli/ "Dossier du projet")
 
     Section 7 — App Météo
-![App Météo](images/App%20Météo.gif)
+
+[![App Météo](images/App%20Météo.gif)](p7-app-meteo/ "Dossier du projet")
 
 ## Udemy
 
