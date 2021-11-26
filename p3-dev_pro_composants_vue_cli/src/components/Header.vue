@@ -1,10 +1,24 @@
 <template>
-  <header>
-    <ul>
-      <li><router-link to="/" exact>Accueil</router-link></li>
-      <li><router-link to="/page1">Page 1</router-link></li>
-      <li><router-link to="/page2">Page 2</router-link></li>
+  <header class="py-3 pr-2 mb-4 bg-dark">
+
+
+    <ul class="nav justify-content-end">
+
+        <li class="btn btn-primary btn-nav">
+            <router-link to="/" exact>Accueil</router-link>
+        </li>
+
+        <li class="btn btn-primary btn-nav">
+            <router-link to="/page1">Page 1</router-link>
+        </li>
+
+        <li class="btn btn-primary btn-nav">
+            <router-link to="/page2">Page 2</router-link>
+        </li>
+
     </ul>
+
+
   </header>
 </template>
 
@@ -15,7 +29,23 @@
 </script>
 
 <style>
-  .router-link-active {
-    color: red;
+  .btn-nav {
+    margin: 5px;
+    width: 15%;
+  }
+  @media all and (max-width: 560px) {
+    .btn-nav {
+      width: auto;
+    }
+  }
+  .btn-nav a {
+    color: #fff;
+  }
+  .btn-nav a:hover {
+    color: #fff;
+  }
+  .btn-nav a.router-link-active {
+    font-weight: bold;
+    text-transform: uppercase;
   }
 </style>
